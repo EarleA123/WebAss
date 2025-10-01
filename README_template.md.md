@@ -1,0 +1,144 @@
+# 🚀 Space Bot API Investigation Sheet
+
+**Total Marks: 30**  
+**Part 1: Collect Required API Documentation**
+
+This investigation sheet helps you gather key technical information from the three APIs required for the Space Bot project: **Webex Messaging API**, **ISS Current Location API**, and a **Geocoding API** (LocationIQ or Mapbox or other), plus the Python time module.
+
+---
+
+## ✅ Section 1: Webex Messaging API (7 marks)
+
+| Criteria | Details |
+|---------|---------|
+| API Base URL | `_______________________________` |
+| Authentication Method | `_______________________________` |
+| Endpoint to list rooms | `_______________________________` |
+| Endpoint to get messages | `_______________________________` |
+| Endpoint to send message | `_______________________________` |
+| Required headers | `_______________________________` |
+| Sample full GET or POST request | `_______________________________` |
+
+---
+
+## 🛰️ Section 2: ISS Current Location API (3 marks)
+
+| Criteria | Details |
+|---------|---------|
+| API Base URL | `http://api.open-notify.org` |
+| Endpoint for current ISS location | `/iss-now.json` |
+| Sample response format (example JSON) |  
+
+{
+    "timestamp": 1759315213,
+    "message": "success",
+    "iss_position": {
+        "latitude": "38.2383",
+        "longitude": "8.5699"
+    }
+}
+```
+
+```
+|
+
+---
+
+## 🗺️ Section 3: Geocoding API (LocationIQ or Mapbox or other) (6 marks)
+
+| Criteria | Details |
+|---------|---------|
+| Provider used (circle one) | **LocationIQ** |
+| API Base URL | `https://us1.locationiq.com` |
+| Endpoint for reverse geocoding | `/v1/reverse` |
+| Authentication method | `Access Token` |
+| Required query parameters | `?key=pk.f8dadac72a6fc03f569c1a0edab8b093&` |
+| Sample request with latitude/longitude | `lat=51.50344025&lon=-0.12770820958562096&format=json` |
+| Sample JSON response (formatted example) |  
+```
+{
+    "place_id": "399379424",
+    "licence": "https://locationiq.com/attribution",
+    "osm_type": "relation",
+    "osm_id": "1879842",
+    "lat": "51.503487750000005",
+    "lon": "-0.12769645443243238",
+    "display_name": "10 Downing Street, 10, Downing Street, Westminster, Millbank, London, Greater London, England, SW1A 2AA, United Kingdom",
+    "address": {
+        "government": "10 Downing Street",
+        "house_number": "10",
+        "road": "Downing Street",
+        "quarter": "Westminster",
+        "suburb": "Millbank",
+        "city": "London",
+        "state_district": "Greater London",
+        "state": "England",
+        "postcode": "SW1A 2AA",
+        "country": "United Kingdom",
+        "country_code": "gb"
+    },
+    "boundingbox": [
+        "51.5033074",
+        "51.5036913",
+        "-0.1277991",
+        "-0.1273088"
+    ]
+}
+
+```
+|
+
+---
+
+## ⏰ Section 4: Epoch to Human Time Conversion (Python time module) (2 marks)
+
+| Criteria | Details |
+|---------|---------|
+| Library used | `_______________________________` |
+| Function used to convert epoch | `_______________________________` |
+| Sample code to convert timestamp |  
+```  
+```
+|
+| Output (human-readable time) | `_______________________________` |
+
+---
+
+## 🧩 Section 5: Web Architecture & MVC Design Pattern (12 marks)
+
+### 🌐 Web Architecture – Client-Server Model
+
+- **Client**: 
+- **Server**: 
+- (Explain the communication between them & include a block diagram )
+
+### 🔁 RESTful API Usage
+
+- 
+- 
+- 
+
+### 🧠 MVC Pattern in Space Bot
+
+| Component   | Description |
+|------------|-------------|
+| **Model**  |  |
+| **View**   |  |
+| **Controller** |  |
+
+
+#### Example:
+- Model: 
+- View: 
+- Controller: 
+
+---
+
+### 📝 Notes
+
+- Use official documentation for accuracy (e.g. developer.webex.com, locationiq.com or Mapbox, open-notify.org or other ISS API).
+- Be prepared to explain your findings to your instructor or demo how you retrieved them using tools like Postman, Curl, or Python scripts.
+
+---
+
+### ✅ Total: /30
