@@ -11,13 +11,57 @@ This investigation sheet helps you gather key technical information from the thr
 
 | Criteria | Details |
 |---------|---------|
-| API Base URL | `_______________________________` |
-| Authentication Method | `_______________________________` |
-| Endpoint to list rooms | `_______________________________` |
-| Endpoint to get messages | `_______________________________` |
-| Endpoint to send message | `_______________________________` |
-| Required headers | `_______________________________` |
-| Sample full GET or POST request | `_______________________________` |
+| API Base URL | `https://webexapis.com/v1/` |
+| Authentication Method | `Bearer - Access token` |
+| Endpoint to list rooms | `/rooms` |
+| Endpoint to get messages | `/messages/{messageId}` |
+| Endpoint to send message | `/messages` |
+| Required headers | ` list rooms -  "Authorization": "Bearer`
+` Get message- "Authorization": "Bearer`
+` Send message - "Authorization": "Bearer` |
+| Sample full GET or POST request | `
+
+List Rooms - {"items": [
+        {
+            "id": "Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL1JPT00vNjA5Y2U0NjAtYTQyNy0xMWYwLWFlZDYtOGRhMzQ5YjNmM2Rk",
+            "title": "Welcome space",
+            "type": "group",
+            "isLocked": false,
+            "lastActivity": "2025-10-08T09:15:48.486Z",
+            "creatorId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8zZWIxOGYyMC02ZDdjLTQ4YjQtODJlNy0wZjIzYzA1M2E0Mzk",
+            "created": "2025-10-08T09:15:48.006Z",
+            "ownerId": "Y2lzY29zcGFyazovL3VzL09SR0FOSVpBVElPTi83NGY1NzVhZC0zOGRhLTRkN2QtYWE4Ni0wYTNmMDdjYzkwY2Q",
+            "isPublic": false,
+            "isReadOnly": false
+        }
+    ]
+}
+
+Send message - { "message": "The request could not be understood by the server due to malformed syntax.",
+    "errors": [
+        {
+            "description": "The request could not be understood by the server due to malformed syntax."
+        }
+    ],
+    "trackingId": "ROUTERGW_9821ff86-98e1-4c18-98d0-4e35fce54c7b"
+}
+
+Get message - {
+    "message": "The requested resource could not be found.",
+    "errors": [
+        {
+            "description": "The requested resource could not be found."
+        }
+    ],
+    "trackingId": "ROUTERGW_6c23d103-81f0-47f0-9549-7df90f5f3286"
+}
+
+
+
+
+
+
+` |
 
 ---
 
