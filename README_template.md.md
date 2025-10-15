@@ -21,7 +21,19 @@ This investigation sheet helps you gather key technical information from the thr
 ` Send message - "Authorization": "Bearer` |
 | Sample full GET or POST request | `
 
-List Rooms - {"items": [
+List Rooms - "items": [
+        {
+            "id": "Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL1JPT00vZmM4NzE3YjAtYTQzMS0xMWYwLTg0YWMtNDkyNzViOTNmM2Mz",
+            "title": "ISS",
+            "type": "group",
+            "isLocked": false,
+            "lastActivity": "2025-10-08T10:31:44.555Z",
+            "creatorId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8zZWIxOGYyMC02ZDdjLTQ4YjQtODJlNy0wZjIzYzA1M2E0Mzk",
+            "created": "2025-10-08T10:31:44.555Z",
+            "ownerId": "Y2lzY29zcGFyazovL3VzL09SR0FOSVpBVElPTi83NGY1NzVhZC0zOGRhLTRkN2QtYWE4Ni0wYTNmMDdjYzkwY2Q",
+            "isPublic": false,
+            "isReadOnly": false
+        },
         {
             "id": "Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL1JPT00vNjA5Y2U0NjAtYTQyNy0xMWYwLWFlZDYtOGRhMzQ5YjNmM2Rk",
             "title": "Welcome space",
@@ -35,33 +47,31 @@ List Rooms - {"items": [
             "isReadOnly": false
         }
     ]
+
+
+Send messages - 
+
+{
+    "id": "Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL01FU1NBR0UvODJiZjc5ZDAtYTlhNS0xMWYwLWI0OTktMzFhNjcxYjhhZTNm",
+    "roomId": "Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL1JPT00vNDRjNjkxMDAtYTlhNC0xMWYwLWIxOTUtNDFjMDBhYmEyNDNk",
+    "roomType": "group",
+    "text": "Hello from Postman!",
+    "personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8zZWIxOGYyMC02ZDdjLTQ4YjQtODJlNy0wZjIzYzA1M2E0Mzk",
+    "personEmail": "ashleyearles1993@hotmail.com",
+    "created": "2025-10-15T09:01:17.677Z"
 }
 
-Send message - { "message": "The request could not be understood by the server due to malformed syntax.",
-    "errors": [
-        {
-            "description": "The request could not be understood by the server due to malformed syntax."
-        }
-    ],
-    "trackingId": "ROUTERGW_9821ff86-98e1-4c18-98d0-4e35fce54c7b"
-}
-
-Get message - {
-    "message": "The requested resource could not be found.",
-    "errors": [
-        {
-            "description": "The requested resource could not be found."
-        }
-    ],
-    "trackingId": "ROUTERGW_6c23d103-81f0-47f0-9549-7df90f5f3286"
+Get messages - {
+    "id": "Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL01FU1NBR0UvODJiZjc5ZDAtYTlhNS0xMWYwLWI0OTktMzFhNjcxYjhhZTNm",
+    "roomId": "Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL1JPT00vNDRjNjkxMDAtYTlhNC0xMWYwLWIxOTUtNDFjMDBhYmEyNDNk",
+    "roomType": "group",
+    "text": "Hello from Postman!",
+    "personId": "Y2lzY29zcGFyazovL3VzL1BFT1BMRS8zZWIxOGYyMC02ZDdjLTQ4YjQtODJlNy0wZjIzYzA1M2E0Mzk",
+    "personEmail": "ashleyearles1993@hotmail.com",
+    "created": "2025-10-15T09:01:17.677Z"
 }
 
 
-
-
-
-
-` |
 
 ---
 
