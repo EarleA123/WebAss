@@ -23,3 +23,23 @@ rooms = r.json()["items"]
 for room in rooms:
     print(f"{room['type'].capitalize()} - {room['title']}")
 
+
+while True:
+    roomNameToSearch = input("Which room should be monitored for the /seconds messages? ")
+    roomIdToGetMessages = None
+
+    for room in rooms:
+        if room["title"].find(roomNameToSearch) != -1:
+            print("Found rooms with the word " + roomNameToSearch)
+            print(room["title"])
+            roomIdToGetMessages = room["id"]
+            roomTitleToGetMessages = room["title"]
+            print("Found room: " + roomTitleToGetMessages)
+            break
+
+    if roomIdToGetMessages is None:
+        print("Sorry, I didn't find any room with " + roomNameToSearch + " in it.")
+        print("Please try again...")
+    else:
+        break
+

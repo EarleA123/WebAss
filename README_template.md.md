@@ -148,13 +148,19 @@ Get messages - {
 
 | Criteria | Details |
 |---------|---------|
-| Library used | `_______________________________` |
-| Function used to convert epoch | `_______________________________` |
+| Library used | `time` |
+| Function used to convert epoch | `time.ctime()` |
 | Sample code to convert timestamp |  
-```  
+``` 
+ import time
+
+timestamp = 734245200  # Example of epoch time calculated in seconds since 1st January 1970
+human_time = time.ctime(timestamp)
+print(human_time)
+
 ```
 |
-| Output (human-readable time) | `_______________________________` |
+| Output (human-readable time) | ` Thu Apr  8 06:00:00 1993 ` |
 
 ---
 
@@ -162,8 +168,8 @@ Get messages - {
 
 ### 🌐 Web Architecture – Client-Server Model
 
-- **Client**: 
-- **Server**: 
+- **Client**: The Space Bot Python program. 
+- **Server**: The extenal API servers - Webex messaging, LocationIQ and Geocoding API
 - (Explain the communication between them & include a block diagram )
 
 ### 🔁 RESTful API Usage
