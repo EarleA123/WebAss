@@ -8,7 +8,7 @@ if choice.lower() == "n":
     accessToken = input("Please enter your access token: ")
     accessToken = "Bearer " + accessToken  
 else:
-    accessToken = "Bearer YmQ4MWRiNjMtYmMzYS00NGI3LWI0NDEtN2VmM2U0NDRlNmIzYTY0NTY4NDMtNTRj_PE93_74f575ad-38da-4d7d-aa86-0a3f07cc90cd"
+    accessToken = "Bearer ZDBjMmJiZjktNmNjOC00M2ZhLTk0OWQtMjhjNGM5Y2NmMWExN2E5NDI2YmEtY2U2_PE93_74f575ad-38da-4d7d-aa86-0a3f07cc90cd"
 
 r = requests.get(
     "https://webexapis.com/v1/rooms",

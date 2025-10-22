@@ -19,7 +19,10 @@ This investigation sheet helps you gather key technical information from the thr
 | Required headers | ` list rooms -  "Authorization": "Bearer`
 ` Get message- "Authorization": "Bearer`
 ` Send message - "Authorization": "Bearer` |
-| Sample full GET or POST request | `
+| Sample full GET or POST request | ` 
+
+url = "https://webexapis.com/v1/rooms"
+
 
 List Rooms - "items": [
         {
@@ -48,6 +51,7 @@ List Rooms - "items": [
         }
     ]
 
+https://webexapis.com/v1/messages
 
 Send messages - 
 
@@ -60,6 +64,8 @@ Send messages -
     "personEmail": "ashleyearles1993@hotmail.com",
     "created": "2025-10-15T09:01:17.677Z"
 }
+
+https://webexapis.com/v1/messages/Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL01FU1NBR0UvODJiZjc5ZDAtYTlhNS0xMWYwLWI0OTktMzFhNjcxYjhhZTNm
 
 Get messages - {
     "id": "Y2lzY29zcGFyazovL3VybjpURUFNOmV1LWNlbnRyYWwtMV9rL01FU1NBR0UvODJiZjc5ZDAtYTlhNS0xMWYwLWI0OTktMzFhNjcxYjhhZTNm",
@@ -107,11 +113,11 @@ Get messages - {
 | Endpoint for reverse geocoding | `/v1/reverse` |
 | Authentication method | `Access Token` |
 | Required query parameters | `?key=pk.f8dadac72a6fc03f569c1a0edab8b093&` |
-| Sample request with latitude/longitude | `lat=51.50344025&lon=-0.12770820958562096&format=json` |
+| Sample request with latitude/longitude | `https://us1.locationiq.com/v1/reverse?key=pk.f8dadac72a6fc03f569c1a0edab8b093&lat=51.50344025&lon=-0.12770820958562096&format=json&` |
 | Sample JSON response (formatted example) |  
 ```
 {
-    "place_id": "399379424",
+    "place_id": "274058577",
     "licence": "https://locationiq.com/attribution",
     "osm_type": "relation",
     "osm_id": "1879842",
@@ -148,7 +154,7 @@ Get messages - {
 
 | Criteria | Details |
 |---------|---------|
-| Library used | `time` |
+| Library used | `import time` |
 | Function used to convert epoch | `time.ctime()` |
 | Sample code to convert timestamp |  
 ``` 
@@ -170,13 +176,30 @@ print(human_time)
 
 - **Client**: The Space Bot Python program. 
 - **Server**: The extenal API servers - Webex messaging, LocationIQ and Geocoding API
-- (Explain the communication between them & include a block diagram )
 
 ### 🔁 RESTful API Usage
 
-- 
-- 
-- 
+
+       Controller    
+  ---Space bot python programme---
+        - Handles user input
+     - Send requests to API's 
+ - Co-ordiantes between controller and logic layers.
+
+             
+
+         Model      ---     Handles data: API requests/responses, data processing
+ (API Interaction Layer)  
+
+ 
+
+ External API Servers                                 View Layer             
+   LocationIQ API                                (Webex Messaging API)       
+   Geocoding API                               Posts messages to Webex room
+   Webex Messaging API              
+
+
+
 
 ### 🧠 MVC Pattern in Space Bot
 
