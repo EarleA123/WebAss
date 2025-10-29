@@ -205,15 +205,24 @@ print(human_time)
 
 | Component   | Description |
 |------------|-------------|
-| **Model**  |  |
-| **View**   |  |
-| **Controller** |  |
+| **Model**  | Space bot python program (Runs locally), webex chatroom  |
+| **View**   | Webex messaging API, displays information in the Webex chat when the python program is run  |
+| **Controller** | python programme controlls the APIS and feeds the information. |
 
 
 #### Example:
 - Model: 
+python program retrieves the ISS location from http://api.open-notify.org/iss-now.json
+converts the coodinates into a readable location using LocationIQ
+Converts the epoch timestamt use the time function.
+
 - View: 
+Webex chat room shows the iss locaton, time and user command
+
 - Controller: 
+python logic calls API after getting the initial information from user.
+proccesses responses and sends message back to the webex room.
+
 
 ---
 
