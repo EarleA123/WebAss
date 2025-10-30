@@ -143,7 +143,7 @@ Get messages - {
         "-0.1277991",
         "-0.1273088"
     ]
-}
+}  
 
 ```
 |
@@ -179,26 +179,11 @@ print(human_time)
 
 ### 🔁 RESTful API Usage
 
+Webex messaging room, recieves messages from user and python program. Post requests as messages.
 
-       Controller    
-  ---Space bot python programme---
-        - Handles user input
-     - Send requests to API's 
- - Co-ordiantes between controller and logic layers.
+LocationIQ, converts co-ordinates into human readable locations, gets request lon and lat from python through the ISS current location.
 
-             
-
-         Model      ---     Handles data: API requests/responses, data processing
- (API Interaction Layer)  
-
- 
-
- External API Servers                                 View Layer             
-   LocationIQ API                                (Webex Messaging API)       
-   Geocoding API                               Posts messages to Webex room
-   Webex Messaging API              
-
-
+Geocoding API, Gets the location of the ISS as latitude and longitude.
 
 
 ### 🧠 MVC Pattern in Space Bot
@@ -211,25 +196,25 @@ print(human_time)
 
 
 #### Example:
-- Model: 
-python program retrieves the ISS location from http://api.open-notify.org/iss-now.json
-converts the coodinates into a readable location using LocationIQ
-Converts the epoch timestamt use the time function.
+                 Controller    
+        ---Space bot python programme---
+            - Handles user input
+     -       Send requests to API's 
+ - Co-ordiantes between controller and logic layers.
 
-- View: 
-Webex chat room shows the iss locaton, time and user command
+             
 
-- Controller: 
-python logic calls API after getting the initial information from user.
-proccesses responses and sends message back to the webex room.
+                 Model      ---     
+        (API Interaction Layer)  
+         External API Servers                                             
+            LocationIQ API                                      
+            Geocoding API                               
+            Webex Messaging API              
 
+                View Layer
+        (Webex Messaging API)  
+        Posts messages to Webex room
 
----
-
-### 📝 Notes
-
-- Use official documentation for accuracy (e.g. developer.webex.com, locationiq.com or Mapbox, open-notify.org or other ISS API).
-- Be prepared to explain your findings to your instructor or demo how you retrieved them using tools like Postman, Curl, or Python scripts.
 
 ---
 
