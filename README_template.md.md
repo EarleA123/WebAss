@@ -174,7 +174,7 @@ print(human_time)
 
 ### 🌐 Web Architecture – Client-Server Model
 
-- **Client**: The Space Bot Python program. 
+- **Client**: The Space Bot Python program, Webex messaging. 
 - **Server**: The extenal API servers - Webex messaging, LocationIQ and Geocoding API
 
 ### 🔁 RESTful API Usage
