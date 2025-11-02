@@ -9,7 +9,7 @@ if choice.lower() == "n":
     accessToken = input("Please enter your access token: ")
     accessToken = "Bearer " + accessToken  
 else:
-    accessToken = "Bearer MWNjNTIzZjEtMmM4Ny00YmNmLWFhNWQtZDBmZWIyZTNlZGIwMTc2OGM5NTktNTc1_PE93_74f575ad-38da-4d7d-aa86-0a3f07cc90cd"
+    accessToken = "Bearer MDI3OWUxN2MtYTVmZS00ZmYwLWI0MWMtZmNlY2MxNzQ3NTI0ZmY1M2JhMjctMWMx_PE93_74f575ad-38da-4d7d-aa86-0a3f07cc90cd"
 
 r = requests.get(
     "https://webexapis.com/v1/rooms",
@@ -74,7 +74,68 @@ while True:
     message = messages[0]["text"]
     print("Latest message:", message) #variable created to print the latest message in the python screen
 
-    if message.find("/") == 0:
+    if message.lower().startswith("/next "): #Only if the message displayed is /next will the program go down this if statement
+        city_query = message[6:].strip() #message [6:] removes the first 6 letters of the string in this case '/next ' , strip() removes any leading or trailing spaces from the word.
+        if not city_query:
+            print("Usage: /next [city name]")
+            continue 
+
+        print(f"Looking up ISS pass time for: {city_query}") 
+
+        
+        mapsAPIGetParameters = {
+            "key": "pk.f8dadac72a6fc03f569c1a0edab8b093",
+            "q": city_query,
+            "format": "json",
+            "limit": 1
+        } #IPlocation json being put into a variable as a list.
+
+        r = requests.get("https://us1.locationiq.com/v1/search", params=mapsAPIGetParameters)
+        if r.status_code != 200 or "error" in r.text.lower():
+            responseMessage = f"Could not find coordinates for '{city_query}'."
+        else:
+            data = r.json()[0]
+            lat = float(data["lat"])
+            lon = float(data["lon"])
+            print(f"Using coordinates: lat={lat}, lon={lon}") #if statement checking the satus code of the request and an else statement if it fails
+
+            
+            N2YOApiKey = "QHMN4Q-4B2P4M-D86DVW-5LGF"  #N2YO is a api that allows us to track where the ISS is going to be.
+            N2yoUrl = f"https://api.n2yo.com/rest/v1/satellite/visualpasses/25544/{lat}/{lon}/0/3/10/&apiKey={N2YOApiKey}"
+
+            r = requests.get(N2yoUrl) #sending the request to N2YO
+            if r.status_code == 200: #Status code reposne from API
+                data = r.json()
+                if "passes" in data and len(data["passes"]) > 0: #Checking json for work passes to use for formatting
+                    next_pass = data["passes"][0] #passes is set at next past to be transfered into a time
+                    risetime = time.ctime(next_pass["startUTC"])#variable set as a readable time format for the pass time of that location
+                    duration = next_pass["duration"] // 60 #Setting a variable to display for the duration the ISS will fly over that location
+                    
+
+                    responseMessage = ( #Layout for the response message
+                        f"The ISS will next pass over **{city_query.title()}** "
+                        f"on {risetime} for about {duration} minutes)."
+                    )
+                else:
+                    responseMessage = f"No visible ISS passes over {city_query.title()} in the next 3 days." # response if the ISS isnt flying over that location in the next 3 days
+            else:
+                print("N2YO API error:", r.text)
+                responseMessage = "Could not retrieve ISS pass data. Try again later." #error or fail message if all other statements are not met.
+
+        
+        HTTPHeaders = {"Authorization": accessToken, "Content-Type": "application/json"} #webex room post request data
+        PostData = {"roomId": roomIdToGetMessages, "text": responseMessage}
+
+        r = requests.post("https://webexapis.com/v1/messages", data=json.dumps(PostData), headers=HTTPHeaders) #posting the data to webex
+        if r.status_code == 200: #returns status code for user.
+            print("Next pass info sent to Webex.")
+        else:
+            print("Error posting to Webex:", r.text)
+
+        continue
+
+    
+    if message.find("/") == 0: 
         if (message[1:].isdigit()):
             seconds = int(message[1:])
         else:
